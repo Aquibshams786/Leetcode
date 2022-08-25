@@ -21,10 +21,26 @@ public:
     }
 };
 
-
-
-
-
-//25 AUG
-
-
+// 25 AUG
+class Solution
+{
+public:
+    bool canConstruct(string ransomNote, string magazine)
+    {
+        for (int i = 0; i < magazine.length(); i++)
+        {
+            for (int j = 0; j < ransomNote.length(); j++)
+            {
+                if (magazine[i] == ransomNote[j])
+                {
+                    ransomNote.erase(ransomNote.begin() + j);
+                }
+            }
+        }
+        if (ransomNote.length() == 0)
+        {
+            return true;
+        }
+        return false;
+    }
+};
