@@ -44,3 +44,29 @@ public:
         return false;
     }
 };
+
+/// 1791
+class Solution
+{
+public:
+    int findCenter(vector<vector<int>> &edges)
+    {
+        map<int, int> m;
+        int n = edges.size();
+        for (int i = 0; i < n; i++)
+        {
+            for (int j = 0; j < edges[i].size(); j++)
+            {
+                m[edges[i][j]]++;
+            }
+        }
+        for (auto i : m)
+        {
+            if (i.second == n)
+            {
+                return i.first;
+            }
+        }
+        return 0;
+    }
+};
