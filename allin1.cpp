@@ -70,3 +70,36 @@ public:
         return 0;
     }
 };
+
+// 26 aug
+// Reordered power of 2
+
+class Solution
+{
+public:
+    bool reorderedPowerOf2(int n)
+    {
+        string s = to_string(n);
+        sort(s.begin(), s.end());
+        vector<string> temp;
+        for (int i = 0; i <= 30; i++)
+        {
+            int a = pow(2, i);
+            temp.push_back(to_string(a));
+        }
+        for (int i = 0; i <= 30; i++)
+        {
+            sort(temp[i].begin(), temp[i].end());
+        }
+        for (int i = 0; i <= 30; i++)
+        {
+            if (s == temp[i])
+            {
+                return 1;
+            }
+        }
+
+        cout << s;
+        return 0;
+    }
+};
