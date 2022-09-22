@@ -309,3 +309,44 @@ public:
         return ans;
     }
 };
+
+///////////////162
+
+class Solution
+{
+public:
+    int findPeakElement(vector<int> &nums)
+    {
+        int n = nums.size();
+        int a = -1;
+        if (n == 1)
+            return 0;
+        for (int i = 1; i < n - 1; i++)
+        {
+            if (nums[i - 1] < nums[i] && nums[i] > nums[i + 1])
+            {
+                a = i;
+            }
+        }
+        if (a == -1)
+        {
+            if (nums[0] > nums[n - 1])
+            {
+                return 0;
+            }
+            return n - 1;
+        }
+        return a;
+    }
+};
+
+//////////////215
+class Solution
+{
+public:
+    int findKthLargest(vector<int> &nums, int k)
+    {
+        sort(nums.begin(), nums.end());
+        return nums[nums.size() - k];
+    }
+};
