@@ -384,3 +384,39 @@ public:
         return ans;
     }
 };
+
+///////////////////1925
+class Solution
+{
+public:
+    int countTriples(int n)
+    {
+        vector<int> sq;
+        vector<int> sqs;
+        for (int i = 1; i <= n; i++)
+        {
+            sq.push_back(i * i);
+        }
+        for (int i = 3; i <= n; i++)
+        {
+            for (int j = 1; j < i; j++)
+            {
+                sqs.push_back((j * j) + (i * i));
+            }
+        }
+        int count = 0;
+        int n1 = sq.size();
+        int m = sqs.size();
+        for (int i = 0; i < n1; i++)
+        {
+            for (int j = 0; j < m; j++)
+            {
+                if (sq[i] == sqs[j])
+                {
+                    count += 2;
+                }
+            }
+        }
+        return count;
+    }
+};
